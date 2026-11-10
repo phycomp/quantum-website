@@ -1,6 +1,6 @@
 """Quantum Website — Streamlit 入口。"""
 
-import sys
+import sys, os
 
 sys.path.insert(0, "/home/sam/quantum_website")
 import streamlit as st
@@ -58,4 +58,8 @@ elif page == "量子演算法":
 elif page == "Oloid 3D":
     st.markdown("## Oloid 3D 列印產品")
     st.write("比價報告、視頻、行銷通路。")
-    st.video("/home/sam/Oloid/video_oloid.mp4")
+    video_path = "assets/video_oloid.mp4"
+    if os.path.exists(video_path):
+        st.video(video_path)
+    else:
+        st.info("視頻檔案未找到。")
