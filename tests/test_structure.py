@@ -70,6 +70,13 @@ def test_ti_topics_present():
     print("ti_topics: PASS (7 檔)")
 
 
+def test_stock_topics_present():
+    """data/stock_topics — stock-market 技能 references 同步的 9 檔蒸餾主題。"""
+    files = glob.glob(os.path.join(REPO, "data", "stock_topics", "[0-9]*.md"))
+    assert len(files) == 9, f"stock_topics 應有 9 檔，實際 {len(files)}"
+    print("stock_topics: PASS (9 檔)")
+
+
 def test_sidebar_convention():
     """全站統一展示：主題型區塊一律提供 *_sidebar()（subtopics 置於 sidebar）。"""
     for mod_name, fn in [
@@ -77,16 +84,17 @@ def test_sidebar_convention():
         ("src.views.quant_topics", "quant_sidebar"),
         ("src.views.yt_posts", "yt_sidebar"),
         ("src.views.ti_topic", "ti_sidebar"),
+        ("src.views.stock_market", "stock_market_sidebar"),
     ]:
         __import__(mod_name)
         mod = sys.modules[mod_name]
         assert hasattr(mod, fn), f"{mod_name} 缺 {fn}()"
         assert callable(getattr(mod, fn)), f"{mod_name}.{fn} 不可呼叫"
-    print("sidebar convention: PASS (4 views)")
+    print("sidebar convention: PASS (5 views)")
 
 
 def test_app_sidebar_dispatch():
-    """app.py 側邊欄須呼叫四個 *_sidebar() 並把選定值傳入 render_*()。"""
+    """app.py 側邊欄須呼叫五個 *_sidebar() 並把選定值傳入 render_*()。"""
     with open(os.path.join(REPO, "app.py"), encoding="utf-8") as fh:
         src = fh.read()
     for pat in (
@@ -94,10 +102,12 @@ def test_app_sidebar_dispatch():
         "quant_sidebar()",
         "yt_sidebar()",
         "ti_sidebar()",
+        "stock_market_sidebar()",
         "render_quantum(quantum_topic)",
         "render_quant(quant_topic)",
         "render_youtube(yt_sel)",
         "render_ti(ti_sel)",
+        "render_stock_market(stock_sel)",
     ):
         assert pat in src, f"app.py 缺「{pat}」"
     print("app sidebar dispatch: PASS")
@@ -142,6 +152,7 @@ if __name__ == "__main__":
     test_streamlit_stl_vendored()
     test_docs_present()
     test_ti_topics_present()
+    test_stock_topics_present()
     test_sidebar_convention()
     test_app_sidebar_dispatch()
     test_yt_posts_present()

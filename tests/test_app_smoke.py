@@ -77,10 +77,43 @@ def test_ti_sidebar_switch_renders():
     print("TI sidebar switch: PASS")
 
 
+def test_stock_section_sidebar():
+    """💹 股市主題：9 蒸餾主題 + 台股本益比 viewer = 10 項。"""
+    at = _run_section("💹 股市主題")
+    radios = at.sidebar.radio
+    assert len(radios) >= 2, "股市主題的 sidebar 應有分區 radio + 清單 radio"
+    labels = radios[1].options
+    assert len(labels) == 10, f"股市主題應 10 項（9 主題+viewer），實際 {len(labels)}"
+    assert labels[0].startswith("00 · 主題總覽"), f"首項應為總覽：{labels[0]}"
+    assert labels[-1].startswith("📈 台股本益比查詢"), (
+        f"末項應為本益比 viewer：{labels[-1]}"
+    )
+    print(f"stock sidebar: PASS ({len(labels)} 項)")
+
+
+def test_stock_sidebar_switch_renders():
+    """股市主題：切換 00 → 08 主題檔，主畫面章節 selectbox 都應渲染。
+
+    不切 viewer 項 — render_stock_vwr() 會向 TWSE 發網路請求（AppTest
+    環境不保證網路），viewer 的 UI 邏輯由 stock_vwr 自身另行保障。
+    """
+    at = _run_section("💹 股市主題")
+    labels = at.sidebar.radio[1].options
+    at.sidebar.radio[1].set_value(labels[0]).run()  # 00 主題總覽
+    assert not at.exception
+    assert at.selectbox, "主題導讀應出現章節 selectbox"
+    at.sidebar.radio[1].set_value(labels[8]).run()  # 08 決策節點
+    assert not at.exception
+    assert at.selectbox, "08 決策節點應出現章節 selectbox"
+    print("stock sidebar switch: PASS")
+
+
 if __name__ == "__main__":
     test_quantum_section_sidebar()
     test_quant_section_sidebar()
     test_youtube_section_sidebar()
     test_ti_section_sidebar()
     test_ti_sidebar_switch_renders()
+    test_stock_section_sidebar()
+    test_stock_sidebar_switch_renders()
     print("All app smoke tests passed.")

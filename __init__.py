@@ -1,6 +1,6 @@
-"""Quantum Website — 統一入口：Quantum / Quant / STL 3D / 台股本益比 / YouTube / 量子傳輸線 / 拓撲絕緣體。
+"""Quantum Website — 統一入口：Quantum / Quant / STL 3D / 股市主題 / YouTube / 量子傳輸線 / 拓撲絕緣體。
 
-架構（2026-11-11 重構；同日擴充 3 區塊）：
+架構（2026-11-11 重構；同日擴充 3 區塊；股市主題併入台股本益比 viewer）：
   單一 app.py 入口 + 側邊欄分區 + src/views/ 函式模組。
   不使用 pages/ 自動多頁（先前在 Streamlit Cloud 造成 StreamlitAPIException，
   已移除）；st.set_page_config 只在此檔呼叫一次。
@@ -18,7 +18,7 @@ from src.content_loader import search_content
 from src.views.quantum_topics import quantum_sidebar, render_quantum
 from src.views.quant_topics import quant_sidebar, render_quant
 from src.views.stl_viewer import render_stl
-from src.views.stock_vwr import render_stock_vwr
+from src.views.stock_market import render_stock_market, stock_market_sidebar
 from src.views.yt_posts import render_youtube, yt_sidebar
 from src.views.quantum_tline import render_tline
 from src.views.ti_topic import render_ti, ti_sidebar
@@ -30,7 +30,7 @@ SECTIONS = [
     "📚 Quantum 主題",
     "📊 Quant 主題",
     "🧊 STL 3D 模型",
-    "📈 台股本益比",
+    "💹 股市主題",
     "📺 YouTube 上傳貼文",
     "🔗 量子傳輸線",
     "🧪 拓撲絕緣體",
@@ -47,6 +47,7 @@ with st.sidebar:
     quant_topic = quant_sidebar() if section == "📊 Quant 主題" else None
     yt_sel = yt_sidebar() if section == "📺 YouTube 上傳貼文" else None
     ti_sel = ti_sidebar() if section == "🧪 拓撲絕緣體" else None
+    stock_sel = stock_market_sidebar() if section == "💹 股市主題" else None
 
     st.divider()
     search_query = st.text_input(
@@ -64,7 +65,7 @@ elif section == "🏠 首頁":
     st.title("Quantum Website")
     st.markdown(
         "統一入口：量子主題（PQC/QKD/ECC）、量化交易主題、"
-        "STL 3D 模型檢視器、台股本益比查詢、YouTube 上傳貼文、"
+        "STL 3D 模型檢視器、股市主題（美股/台股/期權/心法）、YouTube 上傳貼文、"
         "量子傳輸線互動分析、拓撲絕緣體材料預測。"
     )
     st.divider()
@@ -87,7 +88,9 @@ elif section == "🏠 首頁":
             "### 📊 Quant 主題\n台股實盤自動化（Shioaji）、均線交叉、高頻交易、平台架構 — 共 9 個主題"
         )
         st.markdown(
-            "### 📈 台股本益比\nTWSE 每日本益比 / 殖利率 / 股價淨值比查詢（Top N、搜尋）"
+            "### 💹 股市主題\n"
+            "美股投資管道、台股基金 ETF、期權入門、投資心法、配對交易、"
+            "量化平台架構 — 共 9 個主題 ＋ 台股本益比查詢工具"
         )
         st.markdown(
             "### 🧪 拓撲絕緣體\n拓撲量子物態與快速材料預測完整部署包（資料庫、高通量篩選、GNN）"
@@ -100,8 +103,8 @@ elif section == "📊 Quant 主題":
     render_quant(quant_topic)
 elif section == "🧊 STL 3D 模型":
     render_stl()
-elif section == "📈 台股本益比":
-    render_stock_vwr()
+elif section == "💹 股市主題":
+    render_stock_market(stock_sel)
 elif section == "📺 YouTube 上傳貼文":
     render_youtube(yt_sel)
 elif section == "🔗 量子傳輸線":
