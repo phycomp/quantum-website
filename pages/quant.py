@@ -8,7 +8,6 @@ import streamlit as st
 st.set_page_config(page_title="Quant 量化交易", layout="wide")
 st.title("Quant — 量化交易 & 自動化主題")
 
-# 載入量化主題
 QUANT_TOPICS_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "..", "data", "quant_topics"
 )
@@ -40,7 +39,6 @@ if not topics:
     st.warning("未找到量化主題檔案。")
     st.stop()
 
-# Sidebar: 搜尋 + 主題列表
 with st.sidebar:
     st.markdown("### 🔍 搜尋")
     search_query = st.text_input("搜尋關鍵字", key="quant_search")
@@ -60,7 +58,6 @@ with st.sidebar:
             selected_topic = t
             break
 
-# 主內容區
 if search_query:
     st.markdown(f"## 🔍 搜尋結果：{search_query}")
     results = []

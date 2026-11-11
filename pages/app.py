@@ -11,7 +11,6 @@ st.title("Quantum — PQC / QKD / ECC 量子主題")
 
 topics = load_topic_files()
 
-# Sidebar: 搜尋 + 主題列表
 with st.sidebar:
     st.markdown("### 🔍 搜尋")
     search_query = st.text_input("搜尋關鍵字", key="quantum_search")
@@ -36,7 +35,6 @@ with st.sidebar:
             selected_topic = t
             break
 
-# 主內容區
 if search_query:
     st.markdown(f"## 🔍 搜尋結果：{search_query}")
     res = search_content(search_query)
