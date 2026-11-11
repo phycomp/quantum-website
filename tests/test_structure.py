@@ -63,6 +63,13 @@ def test_docs_present():
     print(f"data/docs: PASS ({len(actual)} 檔)")
 
 
+def test_ti_topics_present():
+    """data/ti_topics — topological-insulator 技能 references 同步的 7 檔蒸餾主題。"""
+    files = glob.glob(os.path.join(REPO, "data", "ti_topics", "[0-9]*.md"))
+    assert len(files) == 7, f"ti_topics 應有 7 檔，實際 {len(files)}"
+    print("ti_topics: PASS (7 檔)")
+
+
 def test_yt_posts_present():
     """data/yt_posts — gen_yt_posts.py 依 13 個主題產生的上傳貼文。"""
     files = glob.glob(os.path.join(REPO, "data", "yt_posts", "[0-9]*.md"))
@@ -101,6 +108,7 @@ if __name__ == "__main__":
     test_stl_assets()
     test_streamlit_stl_vendored()
     test_docs_present()
+    test_ti_topics_present()
     test_yt_posts_present()
     test_scripts_compile()
     test_views_compile()
