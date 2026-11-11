@@ -2,15 +2,15 @@
 
 import sys, os
 
-sys.path.insert(0, "/home/sam/quantum_website")
+# Use relative path for Streamlit Cloud compatibility
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, _REPO_ROOT)
 import streamlit as st
 
 st.set_page_config(page_title="Quant 量化交易", layout="wide")
 st.title("Quant — 量化交易 & 自動化主題")
 
-QUANT_TOPICS_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "..", "data", "quant_topics"
-)
+QUANT_TOPICS_DIR = os.path.join(_REPO_ROOT, "data", "quant_topics")
 if not os.path.isdir(QUANT_TOPICS_DIR):
     QUANT_TOPICS_DIR = os.path.join(os.path.expanduser("~"), "量化", "topics")
 

@@ -2,7 +2,9 @@
 
 import sys, os
 
-sys.path.insert(0, "/home/sam/quantum_website")
+# Use relative path for Streamlit Cloud compatibility
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, _REPO_ROOT)
 import streamlit as st
 from src.content_loader import load_topic_files, search_content
 
