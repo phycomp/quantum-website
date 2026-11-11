@@ -1,52 +1,18 @@
 """Quantum Website — Streamlit 入口。"""
 
-import sys, os
-
-sys.path.insert(0, "/home/sam/quantum_website")
 import streamlit as st
-from src.content_loader import load_all, search_content, load_topic_files
 
 st.set_page_config(page_title="Quantum Website", layout="wide")
 st.title("Quantum Website — 量子傳輸線 / PQC / QKD / ECC")
 
-topics = load_topic_files()
+st.markdown("## 歡迎")
+st.write("請從左側 sidebar 選擇頁面：")
+st.markdown("- **quantum** — PQC / QKD / ECC 量子主題（13 個主題）")
+st.markdown("- **quant** — 量化交易 & 自動化主題（8 個主題）")
 
-# Sidebar: 搜尋 + 主題列表
-with st.sidebar:
-    st.markdown("### 🔍 搜尋")
-    search_query = st.text_input("搜尋關鍵字", key="sidebar_search")
-
-    st.markdown("### 📚 主題")
-    # 移除 "Topic n:" 前綴，只顯示標題
-    topic_labels = []
-    for t in topics:
-        title = t["title"]
-        # 移除 "Topic n：" 前綴
-        if title.startswith("Topic ") and "：" in title:
-            title = title.split("：", 1)[-1].strip()
-        topic_labels.append(title)
-
-    selected_topic_label = st.radio(
-        "選擇主題",
-        topic_labels,
-        label_visibility="collapsed",
-    )
-
-    # 找到對應的 topic
-    selected_topic = None
-    for t, label in zip(topics, topic_labels):
-        if label == selected_topic_label:
-            selected_topic = t
-            break
-
-# 主內容區
-if search_query:
-    st.markdown(f"## 🔍 搜尋結果：{search_query}")
-    res = search_content(search_query)
-    st.write(f"找到 {len(res)} 筆結果")
-    for r in res:
-        st.markdown(f"**{r['source']} / {r['file']}**")
-        st.text(r["snippet"])
-elif selected_topic:
-    st.markdown(f"## {selected_topic['title']}")
-    st.markdown(selected_topic["content"])
+st.markdown("---")
+st.markdown("### 快速連結")
+st.markdown("- [GitHub Repo](https://github.com/phycomp/quantum-website)")
+st.markdown(
+    "- [PQC_QKD_topics.md](https://github.com/phycomp/quantum-website/blob/main/data/topics/PQC_QKD_topics.md)"
+)
