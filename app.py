@@ -4,14 +4,16 @@ import sys, os
 
 sys.path.insert(0, "/home/sam/quantum_website")
 import streamlit as st
-from src.content_loader import load_all, search_content
+from src.content_loader import load_all, search_content, load_topic_files
 
 st.set_page_config(page_title="Quantum Website", layout="wide")
 st.title("Quantum Website — 量子傳輸線 / PQC / QKD / ECC")
 
 page = st.sidebar.radio(
-    "頁面", ["首頁", "搜尋", "PQC", "QKD", "ECC", "量子演算法", "Oloid 3D"]
+    "頁面", ["首頁", "主題總覽", "搜尋", "PQC", "QKD", "ECC", "量子演算法", "Oloid 3D"]
 )
+
+topics = load_topic_files()
 
 if page == "首頁":
     st.markdown("## 量子網站")
@@ -20,6 +22,18 @@ if page == "首頁":
     for k, v in data.items():
         st.subheader(k)
         st.write(f"找到 {len(v)} 個 Markdown 檔案。")
+    st.markdown("---")
+    st.markdown(f"### 📚 主題總覽（{len(topics)} 個主題）")
+    for t in topics:
+        st.markdown(f"- **{t['title']}** (`{t['name']}`)")
+
+elif page == "主題總覽":
+    st.markdown("## 📚 PQC & QKD 主題總覽")
+    st.write(f"共 {len(topics)} 個主題，涵蓋後量子密碼學與量子金鑰分發。")
+    for t in topics:
+        with st.expander(t["title"]):
+            st.markdown(t["content"][:3000])
+
 elif page == "搜尋":
     q = st.text_input("搜尋關鍵字")
     if q:
@@ -28,22 +42,26 @@ elif page == "搜尋":
         for r in res:
             st.markdown(f"**{r['source']} / {r['file']}**")
             st.text(r["snippet"])
+
 elif page == "PQC":
     files = load_all().get("PQC", [])
     for f in files[:5]:
         st.subheader(f["name"])
         st.text(f["content"][:500])
+
 elif page == "QKD":
     files = load_all().get("PQC", [])
     for f in files:
         if "QKD" in f["name"] or "QKD" in f["content"]:
             st.subheader(f["name"])
             st.text(f["content"][:500])
+
 elif page == "ECC":
     files = load_all().get("ECC", [])
     for f in files[:5]:
         st.subheader(f["name"])
         st.text(f["content"][:500])
+
 elif page == "量子演算法":
     st.markdown("## 量子演算法")
     st.write("Shor 大數分解、Grover 搜尋加速、量子傅立葉變換 (QFT)、量子糾纏與疊加。")
@@ -55,6 +73,7 @@ elif page == "量子演算法":
         if "QKD" in f["name"] or "量子" in f["content"]:
             st.subheader(f["name"])
             st.text(f["content"][:300])
+
 elif page == "Oloid 3D":
     st.markdown("## Oloid 3D 列印產品")
     st.write("比價報告、視頻、行銷通路。")
