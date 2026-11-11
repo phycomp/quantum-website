@@ -22,8 +22,8 @@ with st.sidebar:
     topic_labels = [f"📄 {t['title']}" for t in topics]
     topic_names = [t["name"] for t in topics]
 
-    # 整合所有選項
-    all_options = page_options + ["── 主題總覽 ──"] + topic_labels
+    # 整合所有選項（移除分隔線）
+    all_options = page_options + topic_labels
 
     # 預設選項
     if "selected_page" not in st.session_state:
