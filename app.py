@@ -16,7 +16,7 @@ import streamlit as st
 
 from src.content_loader import search_content
 from src.views.quantum_topics import render_quantum
-from src.views.quant_topics import render_quant
+from src.views.quant_topics import quant_sidebar, render_quant
 from src.views.stl_viewer import render_stl
 from src.views.stock_vwr import render_stock_vwr
 
@@ -34,6 +34,11 @@ with st.sidebar:
     st.title("Quantum Website")
     st.caption("PQC / QKD / 量化交易 / 3D 列印 / 台股")
     section = st.radio("功能", SECTIONS, label_visibility="collapsed")
+    st.divider()
+
+    # 分區專屬側邊欄控制：Quant 主題清單（標題已去除「Topic N：」前綴）
+    quant_topic = quant_sidebar() if section == "📊 Quant 主題" else None
+
     st.divider()
     search_query = st.text_input(
         "🔍 全站搜尋", key="global_search", placeholder="關鍵字…"
@@ -73,7 +78,7 @@ elif section == "🏠 首頁":
 elif section == "📚 Quantum 主題":
     render_quantum()
 elif section == "📊 Quant 主題":
-    render_quant()
+    render_quant(quant_topic)
 elif section == "🧊 STL 3D 模型":
     render_stl()
 else:
