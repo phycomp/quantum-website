@@ -70,6 +70,39 @@ def test_ti_topics_present():
     print("ti_topics: PASS (7 檔)")
 
 
+def test_sidebar_convention():
+    """全站統一展示：主題型區塊一律提供 *_sidebar()（subtopics 置於 sidebar）。"""
+    for mod_name, fn in [
+        ("src.views.quantum_topics", "quantum_sidebar"),
+        ("src.views.quant_topics", "quant_sidebar"),
+        ("src.views.yt_posts", "yt_sidebar"),
+        ("src.views.ti_topic", "ti_sidebar"),
+    ]:
+        __import__(mod_name)
+        mod = sys.modules[mod_name]
+        assert hasattr(mod, fn), f"{mod_name} 缺 {fn}()"
+        assert callable(getattr(mod, fn)), f"{mod_name}.{fn} 不可呼叫"
+    print("sidebar convention: PASS (4 views)")
+
+
+def test_app_sidebar_dispatch():
+    """app.py 側邊欄須呼叫四個 *_sidebar() 並把選定值傳入 render_*()。"""
+    with open(os.path.join(REPO, "app.py"), encoding="utf-8") as fh:
+        src = fh.read()
+    for pat in (
+        "quantum_sidebar()",
+        "quant_sidebar()",
+        "yt_sidebar()",
+        "ti_sidebar()",
+        "render_quantum(quantum_topic)",
+        "render_quant(quant_topic)",
+        "render_youtube(yt_sel)",
+        "render_ti(ti_sel)",
+    ):
+        assert pat in src, f"app.py 缺「{pat}」"
+    print("app sidebar dispatch: PASS")
+
+
 def test_yt_posts_present():
     """data/yt_posts — gen_yt_posts.py 依 13 個主題產生的上傳貼文。"""
     files = glob.glob(os.path.join(REPO, "data", "yt_posts", "[0-9]*.md"))
@@ -109,6 +142,8 @@ if __name__ == "__main__":
     test_streamlit_stl_vendored()
     test_docs_present()
     test_ti_topics_present()
+    test_sidebar_convention()
+    test_app_sidebar_dispatch()
     test_yt_posts_present()
     test_scripts_compile()
     test_views_compile()

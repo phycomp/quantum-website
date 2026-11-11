@@ -1,7 +1,10 @@
-"""🧪 拓撲絕緣體 — 主題導讀（7 檔）＋ 快速材料預測部署包（雙 tab）。
+"""🧪 拓撲絕緣體 — 蒸餾主題導讀（7 檔）＋ 快速材料預測部署包。
+
+主題清單顯示於側邊欄（ti_sidebar），內文顯示於主畫面（render_ti）—
+與 Quantum / Quant / YouTube 貼文同一展示模式（subtopics 一律 sidebar）。
 
 來源：
-  主題導讀 — ~/.opencode/skills/topological-insulator/references/*.md
+  蒸餾主題 — ~/.opencode/skills/topological-insulator/references/*.md
             （~/物理模擬/topo 119 檔蒸餾 + 2026-11-11 網路充實；
              由 push-streamlit/scripts/sync_topics.py 同步進 data/ti_topics/）
   部署包   — data/docs/topological_insulator.md
@@ -18,8 +21,10 @@ from src.views.doc_browser import render_doc_browser
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TI_TOPICS_DIR = os.path.join(REPO_ROOT, "data", "ti_topics")
+_DEPLOY_PATH = "data/docs/topological_insulator.md"
+_DEPLOY_LABEL = "📦 快速材料預測部署包"
 
-# 顯示名稱（新檔案自動 fallback 為檔名）
+# 顯示名稱（新檔案自動 fallback 為檔名去尾）
 _LABELS = {
     "00_主題總覽.md": "00 · 主題總覽（入口與路由）",
     "01_基礎物理.md": "01 · 基礎物理（Berry 相位／Z₂／BHZ／TRS）",
@@ -39,38 +44,49 @@ def _list_ti_topics():
     ]
 
 
-def render_ti():
+def _entries():
+    """側邊欄/主畫面共用的 (label, 相對路徑) 清單：7 主題 + 部署包。"""
+    files = _list_ti_topics()
+    entries = [(_LABELS.get(n, n[:-3]), f"data/ti_topics/{n}") for n in files]
+    entries.append((_DEPLOY_LABEL, _DEPLOY_PATH))
+    return entries
+
+
+def ti_sidebar():
+    """側邊欄清單；回傳選定項的相對路徑（無主題檔時僅部署包一項）。"""
+    entries = _entries()
+    st.markdown("**🧪 拓撲絕緣體 — 主題導讀＋部署包**")
+    labels = [e[0] for e in entries]
+    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed")
+    for label, path in entries:
+        if label == selected:
+            return path
+    return None
+
+
+def render_ti(sel=None):
+    """主畫面：顯示選定內容（sel 來自 ti_sidebar；預設第一項）。"""
     st.title("🧪 拓撲絕緣體")
     st.caption(
-        "拓撲量子物態完整專區 — 主題導讀（蒸餾自 ~/物理模擬/topo 119 檔）"
+        "拓撲量子物態完整專區 — 蒸餾主題（~/物理模擬/topo 119 檔）"
         "＋ 快速材料預測部署包（資料庫、高通量篩選、GNN）"
     )
-
-    tab_guide, tab_deploy = st.tabs(["📖 主題導讀", "📦 部署包"])
-
-    with tab_guide:
-        files = _list_ti_topics()
-        if not files:
-            st.warning(
-                "找不到主題導讀檔案：data/ti_topics/（push 前應由 sync_topics.py 同步）"
-            )
-        else:
-            labels = {name: _LABELS.get(name, name[:-3]) for name in files}
-            choice = st.selectbox(
-                "子主題（7 檔）" if len(files) == 7 else f"子主題（{len(files)} 檔）",
-                files,
-                format_func=lambda n: labels[n],
-                key="ti_ref_file",
-            )
-            render_doc_browser(
-                f"data/ti_topics/{choice}",
-                key="ti_ref_chapter",
-                caption=f"📂 {labels[choice]} — 依 H2 章節導覽",
-            )
-
-    with tab_deploy:
+    entries = _entries()
+    if not entries:
+        st.warning("找不到主題檔案：data/ti_topics/（push 前應由 sync_topics.py 同步）")
+        return
+    if sel is None:
+        sel = entries[0][1]
+    label = next((lbl for lbl, p in entries if p == sel), "")
+    if sel == _DEPLOY_PATH:
         render_doc_browser(
-            "data/docs/topological_insulator.md",
+            sel,
             key="ti_doc",
             caption="📦 部署包依 H2 章節導覽；內含安裝腳本、SQL schema 與 Python 服務完整程式碼",
+        )
+    else:
+        render_doc_browser(
+            sel,
+            key="ti_ref_chapter",
+            caption=f"📂 {label} — 依 H2 章節導覽",
         )

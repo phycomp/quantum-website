@@ -15,13 +15,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import streamlit as st
 
 from src.content_loader import search_content
-from src.views.quantum_topics import render_quantum
+from src.views.quantum_topics import quantum_sidebar, render_quantum
 from src.views.quant_topics import quant_sidebar, render_quant
 from src.views.stl_viewer import render_stl
 from src.views.stock_vwr import render_stock_vwr
-from src.views.yt_posts import render_youtube
+from src.views.yt_posts import render_youtube, yt_sidebar
 from src.views.quantum_tline import render_tline
-from src.views.ti_topic import render_ti
+from src.views.ti_topic import render_ti, ti_sidebar
 
 st.set_page_config(page_title="Quantum Website", layout="wide")
 
@@ -42,8 +42,11 @@ with st.sidebar:
     section = st.radio("功能", SECTIONS, label_visibility="collapsed")
     st.divider()
 
-    # 分區專屬側邊欄控制：Quant 主題清單（標題已去除「Topic N：」前綴）
+    # 分區專屬側邊欄控制 — subtopics 一律 sidebar（*_sidebar 模式，全站統一展示）
+    quantum_topic = quantum_sidebar() if section == "📚 Quantum 主題" else None
     quant_topic = quant_sidebar() if section == "📊 Quant 主題" else None
+    yt_sel = yt_sidebar() if section == "📺 YouTube 上傳貼文" else None
+    ti_sel = ti_sidebar() if section == "🧪 拓撲絕緣體" else None
 
     st.divider()
     search_query = st.text_input(
@@ -92,7 +95,7 @@ elif section == "🏠 首頁":
     st.divider()
     st.caption("👈 左側選單切換功能，或直接於側邊欄輸入關鍵字全站搜尋。")
 elif section == "📚 Quantum 主題":
-    render_quantum()
+    render_quantum(quantum_topic)
 elif section == "📊 Quant 主題":
     render_quant(quant_topic)
 elif section == "🧊 STL 3D 模型":
@@ -100,8 +103,8 @@ elif section == "🧊 STL 3D 模型":
 elif section == "📈 台股本益比":
     render_stock_vwr()
 elif section == "📺 YouTube 上傳貼文":
-    render_youtube()
+    render_youtube(yt_sel)
 elif section == "🔗 量子傳輸線":
     render_tline()
 else:
-    render_ti()
+    render_ti(ti_sel)
