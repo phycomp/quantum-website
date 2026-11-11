@@ -1,109 +1,80 @@
-"""Quantum Website — Streamlit 入口。"""
+"""Quantum Website — 統一入口：Quantum / Quant / STL 3D / 台股本益比。
 
-import sys, os
+架構（2026-11-11 重構）：
+  單一 app.py 入口 + 側邊欄分區 + src/views/ 函式模組。
+  不使用 pages/ 自動多頁（先前在 Streamlit Cloud 造成 StreamlitAPIException，
+  已移除）；st.set_page_config 只在此檔呼叫一次。
+  __init__.py 與本檔內容同步（支援 streamlit run __init__.py）。
+"""
+
+import os
+import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import streamlit as st
-from src.content_loader import load_topic_files, search_content
+
+from src.content_loader import search_content
+from src.views.quantum_topics import render_quantum
+from src.views.quant_topics import render_quant
+from src.views.stl_viewer import render_stl
+from src.views.stock_vwr import render_stock_vwr
 
 st.set_page_config(page_title="Quantum Website", layout="wide")
-st.title("Quantum Website — 量子傳輸線 / PQC / QKD / ECC")
 
-# 載入所有主題（PQC/QKD + Quant）
-pqc_topics = load_topic_files()
+SECTIONS = [
+    "🏠 首頁",
+    "📚 Quantum 主題",
+    "📊 Quant 主題",
+    "🧊 STL 3D 模型",
+    "📈 台股本益比",
+]
 
-# 載入 Quant 主題
-quant_topics = []
-quant_dir = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "data", "quant_topics"
-)
-if not os.path.isdir(quant_dir):
-    quant_dir = os.path.join(os.path.expanduser("~"), "量化", "topics")
-if os.path.isdir(quant_dir):
-    for f in sorted(os.listdir(quant_dir)):
-        if f.endswith(".md"):
-            path = os.path.join(quant_dir, f)
-            try:
-                with open(path, encoding="utf-8") as fh:
-                    content = fh.read()
-                title = (
-                    f.replace(".md", "").split("_", 1)[-1]
-                    if "_" in f
-                    else f.replace(".md", "")
-                )
-                for line in content.split("\n"):
-                    if line.startswith("# "):
-                        title = line[2:].strip()
-                        break
-                quant_topics.append({"name": f, "title": title, "content": content})
-            except Exception:
-                pass
-
-# Sidebar: 搜尋 + 主題列表
 with st.sidebar:
-    st.markdown("### 🔍 搜尋")
-    search_query = st.text_input("搜尋關鍵字", key="main_search")
-
-    st.markdown("### 📚 Quantum 主題")
-    pqc_labels = []
-    for t in pqc_topics:
-        title = t["title"]
-        if title.startswith("Topic ") and "：" in title:
-            title = title.split("：", 1)[-1].strip()
-        pqc_labels.append(title)
-
-    selected_pqc = st.radio(
-        "Quantum",
-        pqc_labels,
-        label_visibility="collapsed",
-        key="pqc_radio",
+    st.title("Quantum Website")
+    st.caption("PQC / QKD / 量化交易 / 3D 列印 / 台股")
+    section = st.radio("功能", SECTIONS, label_visibility="collapsed")
+    st.divider()
+    search_query = st.text_input(
+        "🔍 全站搜尋", key="global_search", placeholder="關鍵字…"
     )
 
-    st.markdown("### 📊 Quant 主題")
-    quant_labels = [t["title"] for t in quant_topics]
-    selected_quant = st.radio(
-        "Quant",
-        quant_labels,
-        label_visibility="collapsed",
-        key="quant_radio",
-    )
-
-# 判斷選中的是哪個主題
-selected_topic = None
-for t, label in zip(pqc_topics, pqc_labels):
-    if label == selected_pqc:
-        selected_topic = t
-        break
-if selected_topic is None:
-    for t in quant_topics:
-        if t["title"] == selected_quant:
-            selected_topic = t
-            break
-
-# 主內容區
 if search_query:
     st.markdown(f"## 🔍 搜尋結果：{search_query}")
-    res = []
-    for t in pqc_topics:
-        if (
-            search_query.lower() in t["content"].lower()
-            or search_query.lower() in t["title"].lower()
-        ):
-            res.append(
-                {"source": "Quantum", "file": t["name"], "snippet": t["content"][:300]}
-            )
-    for t in quant_topics:
-        if (
-            search_query.lower() in t["content"].lower()
-            or search_query.lower() in t["title"].lower()
-        ):
-            res.append(
-                {"source": "Quant", "file": t["name"], "snippet": t["content"][:300]}
-            )
+    res = search_content(search_query)
     st.write(f"找到 {len(res)} 筆結果")
     for r in res:
-        st.markdown(f"**{r['source']} / {r['file']}**")
-        st.text(r["snippet"])
-elif selected_topic:
-    st.markdown(f"## {selected_topic['title']}")
-    st.markdown(selected_topic["content"])
+        with st.expander(f"{r['source']} / {r['file']}"):
+            st.text(r["snippet"])
+elif section == "🏠 首頁":
+    st.title("Quantum Website")
+    st.markdown(
+        "統一入口：量子主題（PQC/QKD/ECC）、量化交易主題、"
+        "STL 3D 模型檢視器、台股本益比查詢。"
+    )
+    st.divider()
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            "### 📚 Quantum 主題\nPQC 基礎、QKD 金鑰分發、HNDL 威脅、台灣進展、橢圓加密、量子演算法 — 共 14 個主題"
+        )
+        st.markdown(
+            "### 🧊 STL 3D 模型\nOloid / 軌跡體 3D 列印模型互動檢視（旋轉、縮放、換色）"
+        )
+    with col2:
+        st.markdown(
+            "### 📊 Quant 主題\n台股實盤自動化（Shioaji）、均線交叉、高頻交易、平台架構 — 共 9 個主題"
+        )
+        st.markdown(
+            "### 📈 台股本益比\nTWSE 每日本益比 / 殖利率 / 股價淨值比查詢（Top N、搜尋）"
+        )
+    st.divider()
+    st.caption("👈 左側選單切換功能，或直接於側邊欄輸入關鍵字全站搜尋。")
+elif section == "📚 Quantum 主題":
+    render_quantum()
+elif section == "📊 Quant 主題":
+    render_quant()
+elif section == "🧊 STL 3D 模型":
+    render_stl()
+else:
+    render_stock_vwr()
