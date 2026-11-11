@@ -46,9 +46,39 @@ def test_streamlit_stl_vendored():
     print("streamlit_stl vendored: PASS")
 
 
+def test_docs_present():
+    """data/docs — 2026-11-11 整合的 4 份大檔（Arduino/TI/市場分析/模板）。"""
+    expected = {
+        "arduino_wind_turbine.md",
+        "topological_insulator.md",
+        "quantum_market_analysis.md",
+        "quantum_tline_template.md",
+    }
+    actual = {
+        os.path.basename(p)
+        for p in glob.glob(os.path.join(REPO, "data", "docs", "*.md"))
+    }
+    missing = expected - actual
+    assert not missing, f"data/docs 缺檔：{missing}"
+    print(f"data/docs: PASS ({len(actual)} 檔)")
+
+
+def test_yt_posts_present():
+    """data/yt_posts — gen_yt_posts.py 依 13 個主題產生的上傳貼文。"""
+    files = glob.glob(os.path.join(REPO, "data", "yt_posts", "[0-9]*.md"))
+    assert len(files) == 13, f"yt_posts 應有 13 檔，實際 {len(files)}"
+    print("yt_posts: PASS (13 檔)")
+
+
+def test_scripts_compile():
+    for s in glob.glob(os.path.join(REPO, "scripts", "*.py")):
+        py_compile.compile(s, doraise=True)
+    print("scripts compile: PASS")
+
+
 def test_views_compile():
     views = glob.glob(os.path.join(REPO, "src", "views", "*.py"))
-    assert len(views) >= 5, f"views 應有 5 個 py（含 __init__），實際 {len(views)}"
+    assert len(views) >= 9, f"views 應有 9 個 py（含 __init__），實際 {len(views)}"
     for v in views:
         py_compile.compile(v, doraise=True)
     py_compile.compile(os.path.join(REPO, "app.py"), doraise=True)
@@ -70,6 +100,9 @@ if __name__ == "__main__":
     test_quantum_topics_present()
     test_stl_assets()
     test_streamlit_stl_vendored()
+    test_docs_present()
+    test_yt_posts_present()
+    test_scripts_compile()
     test_views_compile()
     test_entrypoints_in_sync()
     print("All structure tests passed.")
