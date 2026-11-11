@@ -11,12 +11,16 @@ SOURCES = {
     "PQC": os.path.join(HOME, "量子", "PQC"),
     "ECC": os.path.join(HOME, "量子", "橢圓加密"),
     "Topics": os.path.join(HOME, "量子", "PQC", "topics"),
+    "Quant": os.path.join(HOME, "量化", "topics"),
 }
 
 # Fallback to repo-local data when running on Streamlit Cloud
 _REPO_TOPICS = os.path.join(REPO_ROOT, "data", "topics")
 if not os.path.isdir(SOURCES["Topics"]) and os.path.isdir(_REPO_TOPICS):
     SOURCES["Topics"] = _REPO_TOPICS
+_REPO_QUANT = os.path.join(REPO_ROOT, "data", "quant_topics")
+if not os.path.isdir(SOURCES.get("Quant", "")) and os.path.isdir(_REPO_QUANT):
+    SOURCES["Quant"] = _REPO_QUANT
 
 
 def load_markdown_files(source_key):
