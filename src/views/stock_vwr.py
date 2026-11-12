@@ -86,7 +86,7 @@ def render_stock_vwr():
 
     c1, c2, c3, c4 = st.columns([1.4, 1, 1, 1.6])
     with c1:
-        metric = st.selectbox("指標", METRICS, index=0)
+        metric = st.radio("指標", METRICS, index=0, horizontal=True)
     with c2:
         n = st.slider("Top N", 5, 50, 10)
     with c3:

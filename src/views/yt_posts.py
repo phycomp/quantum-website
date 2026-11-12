@@ -49,7 +49,7 @@ def yt_sidebar():
     entries = _entries()
     st.markdown("**📺 YouTube 上傳貼文**")
     labels = [e["label"] for e in entries]
-    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed")
+    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed", horizontal=True)
     for e in entries:
         if e["label"] == selected:
             return e

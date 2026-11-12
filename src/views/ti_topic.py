@@ -57,7 +57,7 @@ def ti_sidebar():
     entries = _entries()
     st.markdown("**🧪 拓撲絕緣體 — 主題導讀＋部署包**")
     labels = [e[0] for e in entries]
-    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed")
+    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed", horizontal=True)
     for label, path in entries:
         if label == selected:
             return path

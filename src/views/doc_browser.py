@@ -53,7 +53,9 @@ def render_doc_browser(rel_path, key, caption=None):
         st.caption(caption)
 
     titles = [t for t, _ in sections]
-    selected = st.selectbox(f"章節（共 {len(titles)} 章）", titles, key=key)
+    selected = st.radio(
+        f"章節（共 {len(titles)} 章）", titles, key=key, horizontal=True
+    )
 
     for t, content in sections:
         if t == selected:

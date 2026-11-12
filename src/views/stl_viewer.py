@@ -34,10 +34,12 @@ def _render_models():
 
     c1, c2, c3 = st.columns(3)
     with c1:
-        model = st.selectbox("模型", labels, index=0)
+        model = st.radio("模型", labels, index=0, horizontal=True)
         color = st.color_picker("顏色", "#FF9900")
     with c2:
-        material = st.selectbox("材質", ["material", "flat", "wireframe"], index=0)
+        material = st.radio(
+            "材質", ["material", "flat", "wireframe"], index=0, horizontal=True
+        )
         auto_rotate = st.toggle("自動旋轉", value=True)
     with c3:
         opacity = st.slider("不透明度", 0.0, 1.0, 1.0, 0.05)

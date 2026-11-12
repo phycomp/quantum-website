@@ -62,7 +62,7 @@ def quant_sidebar():
     st.markdown("**📊 Quant 主題 — 量化交易與自動化**")
     labels = [_strip_topic_prefix(t["title"]) for t in topics]
     selected = st.radio(
-        f"共 {len(topics)} 個主題", labels, label_visibility="collapsed"
+        f"共 {len(topics)} 個主題", labels, label_visibility="collapsed", horizontal=True
     )
     for t, label in zip(topics, labels):
         if label == selected:

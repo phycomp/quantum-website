@@ -1,4 +1,4 @@
-"""💹 股市主題 — 蒸餾主題導讀（9 檔）＋ 台股本益比 viewer 工具項。
+"""💹 股市主題 — 蒸餾主題導讀（10 檔）＋ 台股本益比 viewer 工具項。
 
 主題清單顯示於側邊欄（stock_market_sidebar），內文顯示於主畫面（render_stock_market）—
 與 Quantum / Quant / YouTube / TI 同一展示模式（subtopics 一律 sidebar）。
@@ -36,11 +36,12 @@ _LABELS = {
     "06_開源量化工具鏈.md": "06 · 開源量化工具鏈（FinMind／yfinance／backtrader）",
     "07_量化投資平台架構.md": "07 · 量化投資平台架構（流光選股 8279 行導覽）",
     "08_自動化實盤決策節點.md": "08 · 自動化實盤決策節點（Shioaji／HFT／實盤三坑）",
+    "09_QuantX平台與量化課程.md": "09 · QuantX 平台與量化課程（外部平台研究／選型 checklist）",
 }
 
 
 def _list_stock_topics():
-    """列出 data/stock_topics/*.md（同步後應有 9 檔；動態掃描容納日後新增）。"""
+    """列出 data/stock_topics/*.md（同步後應有 10 檔；動態掃描容納日後新增）。"""
     return [
         os.path.basename(f)
         for f in sorted(glob.glob(os.path.join(STOCK_TOPICS_DIR, "*.md")))
@@ -63,7 +64,7 @@ def stock_market_sidebar():
     entries = _entries()
     st.markdown("**💹 股市主題 — 導讀＋台股本益比**")
     labels = [e[0] for e in entries]
-    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed")
+    selected = st.radio(f"共 {len(labels)} 項", labels, label_visibility="collapsed", horizontal=True)
     for label, key in entries:
         if label == selected:
             return key

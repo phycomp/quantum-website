@@ -57,7 +57,7 @@ def test_ti_section_sidebar():
     radios = at.sidebar.radio
     assert len(radios) >= 2, "TI 的 sidebar 應有分區 radio + 清單 radio"
     labels = radios[1].options
-    assert len(labels) == 8, f"TI 應 8 項（7 主題+部署包），實際 {len(labels)}"
+    assert len(labels) == 9, f"TI 應 9 項（8 主題+部署包），實際 {len(labels)}"
     assert labels[-1].startswith("📦 快速材料預測部署包"), (
         f"末項應為部署包：{labels[-1]}"
     )
@@ -70,10 +70,10 @@ def test_ti_sidebar_switch_renders():
     labels = at.sidebar.radio[1].options
     at.sidebar.radio[1].set_value(labels[0]).run()  # 00 主題總覽
     assert not at.exception
-    assert at.selectbox, "主題導讀應出現章節 selectbox"
+    assert at.radio, "主題導讀應出現章節 radio"
     at.sidebar.radio[1].set_value(labels[-1]).run()  # 部署包
     assert not at.exception
-    assert at.selectbox, "部署包應出現章節 selectbox"
+    assert at.radio, "部署包應出現章節 radio"
     print("TI sidebar switch: PASS")
 
 
@@ -83,7 +83,7 @@ def test_stock_section_sidebar():
     radios = at.sidebar.radio
     assert len(radios) >= 2, "股市主題的 sidebar 應有分區 radio + 清單 radio"
     labels = radios[1].options
-    assert len(labels) == 10, f"股市主題應 10 項（9 主題+viewer），實際 {len(labels)}"
+    assert len(labels) == 11, f"股市主題應 11 項（10 主題+viewer），實際 {len(labels)}"
     assert labels[0].startswith("00 · 主題總覽"), f"首項應為總覽：{labels[0]}"
     assert labels[-1].startswith("📈 台股本益比查詢"), (
         f"末項應為本益比 viewer：{labels[-1]}"
@@ -101,10 +101,10 @@ def test_stock_sidebar_switch_renders():
     labels = at.sidebar.radio[1].options
     at.sidebar.radio[1].set_value(labels[0]).run()  # 00 主題總覽
     assert not at.exception
-    assert at.selectbox, "主題導讀應出現章節 selectbox"
+    assert at.radio, "主題導讀應出現章節 radio"
     at.sidebar.radio[1].set_value(labels[8]).run()  # 08 決策節點
     assert not at.exception
-    assert at.selectbox, "08 決策節點應出現章節 selectbox"
+    assert at.radio, "08 決策節點應出現章節 radio"
     print("stock sidebar switch: PASS")
 
 

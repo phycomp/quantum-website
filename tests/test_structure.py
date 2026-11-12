@@ -64,17 +64,17 @@ def test_docs_present():
 
 
 def test_ti_topics_present():
-    """data/ti_topics — topological-insulator 技能 references 同步的 7 檔蒸餾主題。"""
+    """data/ti_topics — topological-insulator 技能 references 同步的 8 檔蒸餾主題。"""
     files = glob.glob(os.path.join(REPO, "data", "ti_topics", "[0-9]*.md"))
-    assert len(files) == 7, f"ti_topics 應有 7 檔，實際 {len(files)}"
-    print("ti_topics: PASS (7 檔)")
+    assert len(files) == 8, f"ti_topics 應有 8 檔，實際 {len(files)}"
+    print("ti_topics: PASS (8 檔)")
 
 
 def test_stock_topics_present():
-    """data/stock_topics — stock-market 技能 references 同步的 9 檔蒸餾主題。"""
+    """data/stock_topics — stock-market 技能 references 同步的 10 檔蒸餾主題。"""
     files = glob.glob(os.path.join(REPO, "data", "stock_topics", "[0-9]*.md"))
-    assert len(files) == 9, f"stock_topics 應有 9 檔，實際 {len(files)}"
-    print("stock_topics: PASS (9 檔)")
+    assert len(files) == 10, f"stock_topics 應有 10 檔，實際 {len(files)}"
+    print("stock_topics: PASS (10 檔)")
 
 
 def test_sidebar_convention():
