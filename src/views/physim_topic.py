@@ -20,7 +20,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 PHYSIM_TOPICS_DIR = os.path.join(REPO_ROOT, "data", "physim_topics")
 
 _LABELS = {
-    "00_索引.md": "00 · 索引（子主題地圖）",
+    "00_主題總覽.md": "00 · 主題總覽（子主題地圖）",
     "01_平台架構與核心.md": "01 · 平台架構與核心",
     "02_量子與能帶域.md": "02 · 量子與能帶域",
     "03_電路域.md": "03 · 電路域",
@@ -29,8 +29,8 @@ _LABELS = {
     "06_測試驗收與效能.md": "06 · 測試驗收與效能",
     "07_未遷移與限制.md": "07 · 未遷移與限制",
     "08_未完成與可新增主題.md": "08 · 未完成與可新增主題",
-    "physics-simulation-acceptance.md": "09 · 驗收規格（FR/NFR/AC）",
-    "concept-diagrams.md": "10 · 概念圖（架構/資料流/渲染管線）",
+    "09_驗收規格.md": "09 · 驗收規格（FR/NFR/AC）",
+    "10_概念圖.md": "10 · 概念圖（架構/資料流/渲染管線）",
 }
 
 
