@@ -89,19 +89,27 @@ def render_distill(selected=None):
             return
 
         # Sidebar: sub-file selection (radio, horizontal)
+        # Extract title from each md file (first # heading)
+        file_labels = []
+        for f in md_files:
+            c = _read_md(f)
+            title = Path(f).name
+            for line in c.splitlines():
+                if line.startswith("# "):
+                    title = line[2:].strip()
+                    break
+            file_labels.append(title)
+
         st.sidebar.divider()
         st.sidebar.header("子檔案選擇")
-        file_names = [Path(f).name for f in md_files]
-        selected_file = st.sidebar.radio(
-            "選擇檔案", file_names, horizontal=True
+        selected_label = st.sidebar.radio(
+            "選擇檔案", file_labels, horizontal=True
         )
 
         # Find the selected file's content
-        selected_path = None
-        for f in md_files:
-            if Path(f).name == selected_file:
-                selected_path = f
-                break
+        selected_idx = file_labels.index(selected_label)
+        selected_path = md_files[selected_idx]
+        selected_file = Path(selected_path).name
 
         if selected_path:
             content = _read_md(selected_path)
