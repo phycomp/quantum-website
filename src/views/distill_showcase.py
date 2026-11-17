@@ -83,14 +83,32 @@ def render_distill(selected=None):
         )
         st.markdown(f"**路徑**：`{info.get('path', 'N/A')}`")
 
-        for f in info.get("md_files", []):
-            fname = Path(f).name
-            content = _read_md(f)
-            with st.expander(f"📄 {fname}"):
-                st.markdown(content)
-                st.download_button(
-                    "下載", content, file_name=fname, mime="text/markdown"
-                )
+        md_files = info.get("md_files", [])
+        if not md_files:
+            st.info("無檔案")
+            return
+
+        # Sidebar: sub-file selection (radio, horizontal)
+        st.sidebar.divider()
+        st.sidebar.header("子檔案選擇")
+        file_names = [Path(f).name for f in md_files]
+        selected_file = st.sidebar.radio(
+            "選擇檔案", file_names, horizontal=True
+        )
+
+        # Find the selected file's content
+        selected_path = None
+        for f in md_files:
+            if Path(f).name == selected_file:
+                selected_path = f
+                break
+
+        if selected_path:
+            content = _read_md(selected_path)
+            st.markdown(content)
+            st.download_button(
+                "下載", content, file_name=selected_file, mime="text/markdown"
+            )
 
     # 搜尋功能
     search_query = st.text_input("🔍 搜尋關鍵字", key="distill_search")
