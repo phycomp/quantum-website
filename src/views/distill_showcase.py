@@ -77,18 +77,11 @@ def render_distill(selected=None):
 
     if selected and selected in topics:
         info = topics[selected]
-        st.header(f"📁 {selected}")
-        st.caption(
-            f"來源：{info.get('source', 'N/A')} | 檔案數：{info.get('count', 0)}"
-        )
-        st.markdown(f"**路徑**：`{info.get('path', 'N/A')}`")
-
         md_files = info.get("md_files", [])
         if not md_files:
             st.info("無檔案")
             return
 
-        # Sidebar: sub-file selection (radio, horizontal)
         # Extract title from each md file (first # heading)
         file_labels = []
         for f in md_files:
@@ -100,23 +93,29 @@ def render_distill(selected=None):
                     break
             file_labels.append(title)
 
-        st.sidebar.divider()
-        st.sidebar.header("子檔案選擇")
-        selected_label = st.sidebar.radio(
-            "選擇檔案", file_labels, horizontal=True
-        )
+        # Left/Right columns layout
+        left, right = st.columns(2)
 
-        # Find the selected file's content
-        selected_idx = file_labels.index(selected_label)
-        selected_path = md_files[selected_idx]
-        selected_file = Path(selected_path).name
+        with left:
+            st.subheader("子檔案選擇")
+            selected_label = st.radio("選擇檔案", file_labels, key="subfile_radio")
+            selected_idx = file_labels.index(selected_label)
+            selected_path = md_files[selected_idx]
+            selected_file = Path(selected_path).name
 
-        if selected_path:
-            content = _read_md(selected_path)
-            st.markdown(content)
-            st.download_button(
-                "下載", content, file_name=selected_file, mime="text/markdown"
+        with right:
+            st.header(f"📁 {selected}")
+            st.caption(
+                f"來源：{info.get('source', 'N/A')} | 檔案數：{info.get('count', 0)}"
             )
+            st.markdown(f"**路徑**：`{info.get('path', 'N/A')}`")
+
+            if selected_path:
+                content = _read_md(selected_path)
+                st.markdown(content)
+                st.download_button(
+                    "下載", content, file_name=selected_file, mime="text/markdown"
+                )
 
     # 搜尋功能
     search_query = st.text_input("🔍 搜尋關鍵字", key="distill_search")
