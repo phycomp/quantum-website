@@ -1,0 +1,541 @@
+{
+  "paperclip": {
+    "source": "local",
+    "path": "/tmp/opencode/distill_paperclip",
+    "md_files": [
+      "/tmp/opencode/distill_paperclip/paperclip_agents.md"
+    ],
+    "count": 1
+  },
+  "twatest": {
+    "source": "local",
+    "path": "/tmp/opencode/distill_twatest",
+    "md_files": [
+      "/tmp/opencode/distill_twatest/00_索引.md",
+      "/tmp/opencode/distill_twatest/01_twa_test_src2.md"
+    ],
+    "count": 2
+  },
+  "html": {
+    "source": "local",
+    "path": "/tmp/opencode/distill_html",
+    "md_files": [],
+    "count": 0
+  },
+  "拓撲絕緣體": {
+    "source": "local",
+    "path": "/tmp/opencode/distill_拓撲絕緣體",
+    "md_files": [
+      "/tmp/opencode/distill_拓撲絕緣體/00_索引.md",
+      "/tmp/opencode/distill_拓撲絕緣體/01_topo.md",
+      "/tmp/opencode/distill_拓撲絕緣體/02_拓撲.md",
+      "/tmp/opencode/distill_拓撲絕緣體/03_TIRC.md",
+      "/tmp/opencode/distill_拓撲絕緣體/03_基礎.md",
+      "/tmp/opencode/distill_拓撲絕緣體/04_pages.md",
+      "/tmp/opencode/distill_拓撲絕緣體/05_指標.md",
+      "/tmp/opencode/distill_拓撲絕緣體/06_相位.md",
+      "/tmp/opencode/distill_拓撲絕緣體/07_Berry.md",
+      "/tmp/opencode/distill_拓撲絕緣體/08_tidb.md",
+      "/tmp/opencode/distill_拓撲絕緣體/09_基礎.md"
+    ],
+    "count": 11
+  },
+  "pqc": {
+    "source": "local",
+    "path": "/tmp/opencode/distill_pqc",
+    "md_files": [
+      "/tmp/opencode/distill_pqc/00_索引.md",
+      "/tmp/opencode/distill_pqc/01_03.md",
+      "/tmp/opencode/distill_pqc/02_13.md",
+      "/tmp/opencode/distill_pqc/03_00.md",
+      "/tmp/opencode/distill_pqc/04_04.md",
+      "/tmp/opencode/distill_pqc/05_PQC.md",
+      "/tmp/opencode/distill_pqc/06_09.md",
+      "/tmp/opencode/distill_pqc/07_08.md",
+      "/tmp/opencode/distill_pqc/08_01.md",
+      "/tmp/opencode/distill_pqc/09_11.md",
+      "/tmp/opencode/distill_pqc/10_07.md",
+      "/tmp/opencode/distill_pqc/11_10.md",
+      "/tmp/opencode/distill_pqc/12_02.md",
+      "/tmp/opencode/distill_pqc/13_06.md",
+      "/tmp/opencode/distill_pqc/14_12.md",
+      "/tmp/opencode/distill_pqc/15_05.md",
+      "/tmp/opencode/distill_pqc/16_fb_posts.md"
+    ],
+    "count": 17
+  },
+  "stock-market": {
+    "source": "skill",
+    "path": "/home/sam/.opencode/skills/stock-market/references",
+    "md_files": [
+      "/home/sam/.opencode/skills/stock-market/references/00_主題總覽.md",
+      "/home/sam/.opencode/skills/stock-market/references/01_美股投資管道與標的.md",
+      "/home/sam/.opencode/skills/stock-market/references/02_台股基金與ETF比較.md",
+      "/home/sam/.opencode/skills/stock-market/references/03_期權入門.md",
+      "/home/sam/.opencode/skills/stock-market/references/04_投資心法.md",
+      "/home/sam/.opencode/skills/stock-market/references/05_配對交易與動態Beta.md",
+      "/home/sam/.opencode/skills/stock-market/references/06_開源量化工具鏈.md",
+      "/home/sam/.opencode/skills/stock-market/references/07_量化投資平台架構.md",
+      "/home/sam/.opencode/skills/stock-market/references/08_自動化實盤決策節點.md",
+      "/home/sam/.opencode/skills/stock-market/references/09_QuantX平台與量化課程.md"
+    ],
+    "count": 10
+  },
+  "2d-superconductor": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/2d-superconductor/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/2d-superconductor/references/01_2D超導與石墨烯.md"
+    ],
+    "count": 1
+  },
+  "plastic-biodegradation": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/plastic-biodegradation/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/plastic-biodegradation/references/01_塑膠微生物分解.md"
+    ],
+    "count": 1
+  },
+  "topological-insulator": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/00_主題總覽.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/01_基礎物理.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/02_材料系統.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/03_計算與預測.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/04_量子傳輸線工程.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/05_拓撲超導與量子計算.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/06_台灣製造與學術生態.md",
+      "/home/sam/軟體/代理人/.agents/skills/topological-insulator/references/07_TI材料資料庫與arxiv.md"
+    ],
+    "count": 8
+  },
+  "topic-distill": {
+    "source": "skill",
+    "path": "/home/sam/.opencode/skills/topic-distill/references",
+    "md_files": [
+      "/home/sam/.opencode/skills/topic-distill/references/00_完整流程.md",
+      "/home/sam/.opencode/skills/topic-distill/references/01_範例對照.md",
+      "/home/sam/.opencode/skills/topic-distill/references/02_提示詞範例.md"
+    ],
+    "count": 3
+  },
+  "ai-ml-app-engineering": {
+    "source": "skill",
+    "path": "/home/sam/.opencode/skills/ai-ml-app-engineering/references",
+    "md_files": [
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/00_主題總覽.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/01_本地LLM部署與推理優化.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/02_模型選型與成本算力.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/03_RAG與向量資料庫.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/04_Agent框架與工具呼叫.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/05_微調與對齊流程.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/06_ML工具鏈與實驗管理.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/07_評估與可觀測性.md",
+      "/home/sam/.opencode/skills/ai-ml-app-engineering/references/08_上線架構與維運成本.md"
+    ],
+    "count": 9
+  },
+  "hyperframes-registry": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/contributing.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/demo-html-pattern.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/discovery.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/install-locations.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/templates.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/wiring-blocks.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-registry/references/wiring-components.md"
+    ],
+    "count": 7
+  },
+  "video-understand": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/video-understand/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/video-understand/references/output-format.md"
+    ],
+    "count": 1
+  },
+  "heygen": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/heygen/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/assets.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/authentication.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/avatars.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/backgrounds.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/captions.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/dimensions.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/photo-avatars.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/prompt-examples.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/prompt-optimizer.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/quota.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/remotion-integration.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/scripts.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/templates.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/text-overlays.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/video-agent.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/video-generation.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/video-status.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/visual-styles.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/voices.md",
+      "/home/sam/軟體/代理人/.agents/skills/heygen/references/webhooks.md"
+    ],
+    "count": 20
+  },
+  "beautiful-mermaid": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/beautiful-mermaid/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/beautiful-mermaid/references/mermaid-syntax.md"
+    ],
+    "count": 1
+  },
+  "music-to-video": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/music-to-video/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/music-to-video/references/frame-skeleton.md",
+      "/home/sam/軟體/代理人/.agents/skills/music-to-video/references/montage.md",
+      "/home/sam/軟體/代理人/.agents/skills/music-to-video/references/motion-primitive-catalog.md",
+      "/home/sam/軟體/代理人/.agents/skills/music-to-video/references/planning.md",
+      "/home/sam/軟體/代理人/.agents/skills/music-to-video/references/storyboard-format.md",
+      "/home/sam/軟體/代理人/.agents/skills/music-to-video/references/template-catalog.md"
+    ],
+    "count": 6
+  },
+  "remotion-to-hyperframes": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/api-map.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/escape-hatch.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/eval.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/fonts.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/limitations.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/lottie.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/media.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/parameters.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/sequencing.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/timing.md",
+      "/home/sam/軟體/代理人/.agents/skills/remotion-to-hyperframes/references/transitions.md"
+    ],
+    "count": 11
+  },
+  "hyperframes-cli": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references/doctor-browser.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references/init-and-scaffold.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references/lambda.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references/preview-render.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-cli/references/upgrade-info-misc.md"
+    ],
+    "count": 6
+  },
+  "music": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/music/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/music/references/api_reference.md",
+      "/home/sam/軟體/代理人/.agents/skills/music/references/installation.md"
+    ],
+    "count": 2
+  },
+  "d3-viz": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/d3-viz/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/d3-viz/references/colour-schemes.md",
+      "/home/sam/軟體/代理人/.agents/skills/d3-viz/references/d3-patterns.md",
+      "/home/sam/軟體/代理人/.agents/skills/d3-viz/references/scale-reference.md"
+    ],
+    "count": 3
+  },
+  "hyperframes-core": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/composition-patterns.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/data-attributes.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/determinism-rules.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/full-screen-motion.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/minimal-composition.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/script-format.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/storyboard-format.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/sub-compositions.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/subagent-dispatch.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/tailwind.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/tracks-and-clips.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-core/references/variables-and-media.md"
+    ],
+    "count": 12
+  },
+  "threejs-world-generation": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/threejs-world-generation/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/threejs-world-generation/references/world-spec.md",
+      "/home/sam/軟體/代理人/.agents/skills/threejs-world-generation/references/worldclaw-principles.md"
+    ],
+    "count": 2
+  },
+  "agents": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/agents/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/agents/references/agent-configuration.md",
+      "/home/sam/軟體/代理人/.agents/skills/agents/references/client-tools.md",
+      "/home/sam/軟體/代理人/.agents/skills/agents/references/installation.md",
+      "/home/sam/軟體/代理人/.agents/skills/agents/references/outbound-calls.md",
+      "/home/sam/軟體/代理人/.agents/skills/agents/references/widget-embedding.md"
+    ],
+    "count": 5
+  },
+  "manimgl-best-practices": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/equation_transforms.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/integration_visualization.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/parallax_starfield.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/rotating_exponentials.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/spring_mass_system.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/three_d_surfaces.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/transit_animation.md",
+      "/home/sam/軟體/代理人/.agents/skills/manimgl-best-practices/references/vector_fields.md"
+    ],
+    "count": 8
+  },
+  "lyria": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/lyria/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/lyria/references/api-and-prompting.md"
+    ],
+    "count": 1
+  },
+  "speech-to-text": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references/installation.md",
+      "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references/realtime-client-side.md",
+      "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references/realtime-commit-strategies.md",
+      "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references/realtime-events.md",
+      "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references/realtime-server-side.md",
+      "/home/sam/軟體/代理人/.agents/skills/speech-to-text/references/transcription-options.md"
+    ],
+    "count": 6
+  },
+  "sound-effects": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/sound-effects/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/sound-effects/references/installation.md"
+    ],
+    "count": 1
+  },
+  "manim-composer": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/manim-composer/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/manim-composer/references/narrative-patterns.md",
+      "/home/sam/軟體/代理人/.agents/skills/manim-composer/references/scene-examples.md",
+      "/home/sam/軟體/代理人/.agents/skills/manim-composer/references/visual-techniques.md"
+    ],
+    "count": 3
+  },
+  "visual-style": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/visual-style/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/visual-style/references/spec.md"
+    ],
+    "count": 1
+  },
+  "bfl-api": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/bfl-api/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/bfl-api/references/api-key-setup.md",
+      "/home/sam/軟體/代理人/.agents/skills/bfl-api/references/endpoints.md",
+      "/home/sam/軟體/代理人/.agents/skills/bfl-api/references/error-handling.md",
+      "/home/sam/軟體/代理人/.agents/skills/bfl-api/references/polling-patterns.md",
+      "/home/sam/軟體/代理人/.agents/skills/bfl-api/references/rate-limiting.md",
+      "/home/sam/軟體/代理人/.agents/skills/bfl-api/references/webhook-integration.md"
+    ],
+    "count": 6
+  },
+  "motion-graphics": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/motion-graphics/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/motion-graphics/references/builder-contract.md",
+      "/home/sam/軟體/代理人/.agents/skills/motion-graphics/references/motion-vocabulary.md",
+      "/home/sam/軟體/代理人/.agents/skills/motion-graphics/references/shot-plan-ir.md"
+    ],
+    "count": 3
+  },
+  "avatar-video": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/avatar-video/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/assets.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/avatars.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/backgrounds.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/captions.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/dimensions.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/photo-avatars.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/quota.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/remotion-integration.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/scripts.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/templates.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/text-overlays.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/video-generation.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/video-status.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/voices.md",
+      "/home/sam/軟體/代理人/.agents/skills/avatar-video/references/webhooks.md"
+    ],
+    "count": 15
+  },
+  "create-video": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/create-video/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/assets.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/dimensions.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/prompt-examples.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/prompt-optimizer.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/quota.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/video-agent.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/video-status.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/visual-styles.md",
+      "/home/sam/軟體/代理人/.agents/skills/create-video/references/webhooks.md"
+    ],
+    "count": 9
+  },
+  "website-to-video": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/website-to-video/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/beat-builder-guide.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/capabilities.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-0-capture.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-1-design.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-2-brief.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-3-storyboard.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-4-vo.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-5-build.md",
+      "/home/sam/軟體/代理人/.agents/skills/website-to-video/references/step-6-validate.md"
+    ],
+    "count": 9
+  },
+  "hyperframes-creative": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/audio-reactive.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/beat-direction.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/composition-patterns.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/data-in-motion.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/design-adherence.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/design-picker.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/design-spec.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/house-style.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/motion-principles.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/narration.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/prompt-expansion.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/typography.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/video-composition.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-creative/references/visual-styles.md"
+    ],
+    "count": 14
+  },
+  "hyperframes-media": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/bgm.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/remove-background.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/requirements.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/sfx.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/transcribe.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/tts-to-captions.md",
+      "/home/sam/軟體/代理人/.agents/skills/hyperframes-media/references/tts.md"
+    ],
+    "count": 7
+  },
+  "video-edit": {
+    "source": "skill",
+    "path": "/home/sam/軟體/代理人/.agents/skills/video-edit/references",
+    "md_files": [
+      "/home/sam/軟體/代理人/.agents/skills/video-edit/references/operations.md"
+    ],
+    "count": 1
+  },
+  "道 (大學·中庸·道·理·天命)": {
+    "source": "local",
+    "path": "/home/sam/道",
+    "md_files": [
+      "/home/sam/道/00_索引.md",
+      "/home/sam/道/01_大學.md",
+      "/home/sam/道/02_中庸.md",
+      "/home/sam/道/03_道.md",
+      "/home/sam/道/04_理.md",
+      "/home/sam/道/05_天命.md"
+    ],
+    "count": 6
+  },
+  "Quantum-Algorithms-QKD": {
+    "source": "local",
+    "path": "/home/sam/quantum-algorithms-qkd",
+    "md_files": [
+      "/home/sam/quantum-algorithms-qkd/00_索引.md",
+      "/home/sam/quantum-algorithms-qkd/01_Quantum_Algorithms.md",
+      "/home/sam/quantum-algorithms-qkd/02_Shors_Algorithm.md",
+      "/home/sam/quantum-algorithms-qkd/03_QAOA.md",
+      "/home/sam/quantum-algorithms-qkd/04_QKD_Basics.md",
+      "/home/sam/quantum-algorithms-qkd/05_QKD_Networks.md",
+      "/home/sam/quantum-algorithms-qkd/06_QKD_Security.md",
+      "/home/sam/quantum-algorithms-qkd/07_QKD_Verification.md"
+    ],
+    "count": 8
+  },
+  "qalgo (PQC-QKD-ECC-Quantum)": {
+    "source": "local",
+    "path": "/home/sam/qalgo",
+    "md_files": [
+      "/home/sam/qalgo/QALGO_INDEX.md"
+    ],
+    "count": 1
+  },
+  "ai-code-not-slop": {
+    "source": "local",
+    "path": "/home/sam/books/ai-code-not-slop",
+    "md_files": [
+      "/home/sam/books/ai-code-not-slop/BOOK_OVERVIEW.md"
+    ],
+    "count": 1
+  },
+  "quixer-quantum-transformer": {
+    "source": "local",
+    "path": "/home/sam/quixer-quantum-transformer",
+    "md_files": [
+      "/home/sam/quixer-quantum-transformer/00_索引.md",
+      "/home/sam/quixer-quantum-transformer/01_Quixer_Overview.md",
+      "/home/sam/quixer-quantum-transformer/03_LCU_Mixing.md",
+      "/home/sam/quixer-quantum-transformer/04_QSVT.md",
+      "/home/sam/quixer-quantum-transformer/05_Experimental_Results.md",
+      "/home/sam/quixer-quantum-transformer/06_Resource_Estimates.md",
+      "/home/sam/quixer-quantum-transformer/07_Framework_Extensibility.md"
+    ],
+    "count": 7
+  }
+}

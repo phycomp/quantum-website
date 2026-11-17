@@ -21,7 +21,7 @@ from src.views.stl_viewer import render_stl
 from src.views.stock_market import render_stock_market, stock_market_sidebar
 from src.views.yt_posts import render_youtube, yt_sidebar
 from src.views.quantum_tline import render_tline
-from src.views.ti_topic import render_ti, ti_sidebar
+from src.views.distill_showcase import render_distill, distill_sidebar
 
 st.set_page_config(page_title="Quantum Website", layout="wide")
 
@@ -34,6 +34,8 @@ SECTIONS = [
     "📺 YouTube 上傳貼文",
     "🔗 量子傳輸線",
     "🧪 拓撲絕緣體",
+    "🔬 物理模擬",
+    "📚 蒸餾成果展示",
 ]
 
 with st.sidebar:
@@ -47,7 +49,7 @@ with st.sidebar:
     quant_topic = quant_sidebar() if section == "📊 Quant 主題" else None
     yt_sel = yt_sidebar() if section == "📺 YouTube 上傳貼文" else None
     ti_sel = ti_sidebar() if section == "🧪 拓撲絕緣體" else None
-    stock_sel = stock_market_sidebar() if section == "💹 股市主題" else None
+    distill_sel = distill_sidebar() if section == "📚 蒸餾成果展示" else None
 
     st.divider()
     search_query = st.text_input(
@@ -109,5 +111,9 @@ elif section == "📺 YouTube 上傳貼文":
     render_youtube(yt_sel)
 elif section == "🔗 量子傳輸線":
     render_tline()
+elif section == "🔬 物理模擬":
+    render_physim(physim_sel)
+elif section == "📚 蒸餾成果展示":
+    render_distill(distill_sel)
 else:
     render_ti(ti_sel)
