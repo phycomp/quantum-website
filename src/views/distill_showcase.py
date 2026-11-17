@@ -65,8 +65,14 @@ def render_distill(selected=None):
         st.warning("尚無蒸餾主題。")
         return
 
+    # Check URL query params for pre-selected topic
+    query_params = st.query_params
+    pre_selected = query_params.get("topic", None)
+    names = sorted(topics.keys())
+    if pre_selected and pre_selected in names:
+        selected = pre_selected
+
     if selected is None:
-        names = sorted(topics.keys())
         selected = names[0] if names else None
 
     if selected and selected in topics:
