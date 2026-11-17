@@ -94,7 +94,7 @@ def render_distill(selected=None):
             file_labels.append(title)
 
         # Left/Right columns layout
-        left, right = st.columns([2, 8])
+        left, right = st.columns([3, 7])
 
         with left:
             st.subheader("子檔案選擇")
