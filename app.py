@@ -16,6 +16,7 @@ import streamlit as st
 
 from src.content_loader import search_content
 from src.views.quantum_topics import quantum_sidebar, render_quantum
+from src.views.qubit_arch_topics import qubit_arch_sidebar, render_qubit_arch
 from src.views.quant_topics import quant_sidebar, render_quant
 from src.views.stl_viewer import render_stl
 from src.views.stock_market import render_stock_market, stock_market_sidebar
@@ -28,6 +29,7 @@ st.set_page_config(page_title="Quantum Website", layout="wide")
 SECTIONS = [
     "🏠 首頁",
     "📚 Quantum 主題",
+    "⚛️ 量子位元架構",
     "📊 Quant 主題",
     "🧊 STL 3D 模型",
     "💹 股市主題",
@@ -46,6 +48,7 @@ with st.sidebar:
 
     # 分區專屬側邊欄控制 — subtopics 一律 sidebar（*_sidebar 模式，全站統一展示）
     quantum_topic = quantum_sidebar() if section == "📚 Quantum 主題" else None
+    qubit_arch_topic = qubit_arch_sidebar() if section == "⚛️ 量子位元架構" else None
     quant_topic = quant_sidebar() if section == "📊 Quant 主題" else None
     yt_sel = yt_sidebar() if section == "📺 YouTube 上傳貼文" else None
     ti_sel = ti_sidebar() if section == "🧪 拓撲絕緣體" else None
@@ -101,6 +104,8 @@ elif section == "🏠 首頁":
     st.caption("👈 左側選單切換功能，或直接於側邊欄輸入關鍵字全站搜尋。")
 elif section == "📚 Quantum 主題":
     render_quantum(quantum_topic)
+elif section == "⚛️ 量子位元架構":
+    render_qubit_arch(qubit_arch_topic)
 elif section == "📊 Quant 主題":
     render_quant(quant_topic)
 elif section == "🧊 STL 3D 模型":

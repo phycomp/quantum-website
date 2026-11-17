@@ -30,9 +30,11 @@ SOURCES = {
         os.path.join(REPO_ROOT, "data", "topics"),
         os.path.join(HOME, "量子", "PQC", "topics"),
     ),
-    "Quant": _first_dir(
-        os.path.join(REPO_ROOT, "data", "quant_topics"),
-        os.path.join(HOME, "量化", "topics"),
+    "QubitArch": _first_dir(
+        os.path.join(REPO_ROOT, "data", "qubit_arch_topics"),
+        os.path.join(
+            HOME, ".opencode", "skills", "quantum-bit-architecture", "references"
+        ),
     ),
     # 僅本機搜尋用（雲端不存在）
     "PQC": os.path.join(HOME, "量子", "PQC"),
@@ -80,8 +82,33 @@ def search_content(keyword):
     return results
 
 
-def load_topic_files():
-    """載入 Topics 目錄下的主題檔案（編號開頭；排除子目錄如 fb_posts/）。"""
+def load_qubit_arch_files():
+    """載入 QubitArch 目錄下的主題檔案（編號開頭；排除子目錄）。"""
+    base = SOURCES["QubitArch"]
+    if not base or not os.path.isdir(base):
+        return []
+    files = []
+    for f in sorted(os.listdir(base)):
+        if f.endswith(".md") and f[0].isdigit():
+            path = os.path.join(base, f)
+            try:
+                with open(path, encoding="utf-8") as fh:
+                    content = fh.read()
+                title = (
+                    f.replace(".md", "").split("_", 1)[-1]
+                    if "_" in f
+                    else f.replace(".md", "")
+                )
+                for line in content.split("\n"):
+                    if line.startswith("# "):
+                        title = line[2:].strip()
+                        break
+                files.append(
+                    {"path": path, "name": f, "title": title, "content": content}
+                )
+            except Exception:
+                pass
+    return files
     base = SOURCES["Topics"]
     if not base or not os.path.isdir(base):
         return []
