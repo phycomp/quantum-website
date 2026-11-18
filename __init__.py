@@ -16,7 +16,7 @@ import streamlit as st
 
 from src.content_loader import search_content
 from src.views.quantum_topics import quantum_sidebar, render_quantum
-from src.views.qubit_arch_topics import qubit_arch_sidebar, render_qubit_arch
+from src.views.qbit_arch_topics import qubit_arch_sidebar, render_qubit_arch
 from src.views.quant_topics import quant_sidebar, render_quant
 from src.views.stl_viewer import render_stl
 from src.views.stock_market import render_stock_market, stock_market_sidebar

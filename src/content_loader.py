@@ -31,10 +31,8 @@ SOURCES = {
         os.path.join(HOME, "量子", "PQC", "topics"),
     ),
     "QubitArch": _first_dir(
-        os.path.join(REPO_ROOT, "data", "qubit_arch_topics"),
-        os.path.join(
-            HOME, ".opencode", "skills", "quantum-bit-architecture", "references"
-        ),
+        os.path.join(REPO_ROOT, "data", "qbit_arch_topics"),
+        os.path.join(HOME, ".opencode", "skills", "qbit-arch", "references"),
     ),
     # 僅本機搜尋用（雲端不存在）
     "PQC": os.path.join(HOME, "量子", "PQC"),

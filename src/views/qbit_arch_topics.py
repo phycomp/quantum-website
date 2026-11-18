@@ -38,7 +38,7 @@ def render_qubit_arch(topic=None):
         topics = load_qubit_arch_files()
         topic = topics[0] if topics else None
     if topic is None:
-        st.warning("未找到量子位元架構主題檔案（data/qubit_arch_topics/）。")
+        st.warning("未找到量子位元架構主題檔案（data/qbit_arch_topics/）。")
         return
     st.markdown(f"## {_strip_topic_prefix(topic['title'])}")
     st.markdown(topic["content"])
